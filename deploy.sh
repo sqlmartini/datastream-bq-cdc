@@ -17,8 +17,8 @@ GCP_ACCOUNT_NAME=`gcloud auth list --filter=status:ACTIVE --format="value(accoun
 GCP_REGION="us-central1"
 CDF_NAME="cdf1"
 CDF_VERSION="BASIC"
-CDF_RELEASE="6.10.0"
-CLOUD_COMPOSER_IMAGE_VERSION="composer-2.6.2-airflow-2.6.3"
+CDF_RELEASE="6.10.1"
+CLOUD_COMPOSER_IMAGE_VERSION="composer-2.8.5-airflow-2.7.3"
 
 #Run the Terraform for provisioning the rest of the environment
 terraform init
