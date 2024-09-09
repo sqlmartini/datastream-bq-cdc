@@ -3,7 +3,7 @@
     "description": "Data Pipeline Application",
     "artifact": {
         "name": "cdap-data-pipeline",
-        "version": "6.10.0",
+        "version": "6.10.1",
         "scope": "SYSTEM"
     },
     "config": {
@@ -35,7 +35,7 @@
                     "label": "SQL Server",
                     "artifact": {
                         "name": "mssql-plugin",
-                        "version": "1.11.0",
+                        "version": "1.11.2",
                         "scope": "SYSTEM"
                     },
                     "properties": {
@@ -95,7 +95,7 @@
                     "label": "BigQuery",
                     "artifact": {
                         "name": "google-cloud",
-                        "version": "0.23.0",
+                        "version": "0.23.1",
                         "scope": "SYSTEM"
                     },
                     "properties": {
