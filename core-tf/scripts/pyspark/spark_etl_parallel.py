@@ -4,7 +4,7 @@ from queue import Queue
 
 # Source variables
 database = "AdventureWorks2022"
-cloudsql_ip = "10.2.0.2:1433"
+cloudsql_ip = "10.2.0.3:1433"
 db_url = f"jdbc:sqlserver://{cloudsql_ip};databaseName={database};encrypt=true;trustServerCertificate=true;"
 db_user = "sqlserver"
 db_password = "P@ssword@111"

@@ -1,0 +1,1 @@
+write a pyspark script that reads data from a bigquery configuration table and then loops through the result set to read a dataframe from a sql server source database and then write the dataframe to bigquery

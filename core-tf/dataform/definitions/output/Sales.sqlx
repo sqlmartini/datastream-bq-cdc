@@ -14,8 +14,8 @@ SELECT
     , b.LineTotal
     , a.TotalDue
 FROM
-    ${ref("adventureworks", "SalesOrderHeader")} a
+    ${ref("SalesOrderHeader")} a
 INNER JOIN
-        ${ref("adventureworks", "SalesOrderDetail")} b
+        ${ref("SalesOrderDetail")} b
 ON
     a.SalesOrderID = b.SalesOrderID

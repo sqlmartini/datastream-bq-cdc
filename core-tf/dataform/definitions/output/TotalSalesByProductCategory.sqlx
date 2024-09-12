@@ -5,9 +5,9 @@ SELECT
     b.ProductCategoryName
     , SUM(a.LineTotal) as TotalSales
 FROM
-    ${ref("adventureworks", "Sales")} a
+    ${ref("Sales")} a
 INNER JOIN
-    ${ref("adventureworks", "Products")} b
+    ${ref(""Products")} b
 ON
     a.ProductID = b.ProductID
 GROUP BY

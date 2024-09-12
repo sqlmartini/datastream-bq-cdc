@@ -438,7 +438,7 @@ resource "google_compute_instance" "sql-proxy" {
   zone         = "us-central1-a"
   boot_disk {
     initialize_params {
-      image = "cos-cloud/cos-stable-109-17800-66-27"
+      image = "cos-cloud/cos-stable-113-18244-151-33"
     }
   }
   network_interface {

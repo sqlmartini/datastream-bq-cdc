@@ -1,5 +1,5 @@
 #Configure project you want to deploy to
-export PROJECT_ID="amm-dataform"
+export PROJECT_ID="amm-dataproc-testing-434813"
 cd ~/repos/gcp_analytics_demo/core-tf/scripts
 source 1-config.sh
 
@@ -38,6 +38,7 @@ cd ~/repos/gcp_analytics_demo/core-tf/
 mkdir database
 cd ~/repos/gcp_analytics_demo/core-tf/database
 curl -LJO https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak
+curl -LJO https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2022.bak
 
 #Import sample database to Cloud SQL
 cd ~/repos/gcp_analytics_demo/core-tf/scripts

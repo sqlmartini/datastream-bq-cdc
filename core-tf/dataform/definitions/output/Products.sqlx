@@ -11,12 +11,12 @@ SELECT
     , a.ListPrice
     , a.ProductLine
 FROM
-    ${ref("adventureworks", "Product")} a
+    ${ref("Product")} a
 INNER JOIN
-        ${ref("adventureworks", "ProductSubcategory")} b
+        ${ref("ProductSubcategory")} b
 ON
     a.ProductSubcategoryID = b.ProductSubcategoryID
 INNER JOIN
-        ${ref("adventureworks", "ProductCategory")} c
+        ${ref("ProductCategory")} c
 ON
     b.ProductCategoryID = c.ProductCategoryID
