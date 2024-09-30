@@ -1,13 +1,13 @@
 from pyspark.sql import SparkSession
 
 database = "AdventureWorks2022"
-db_url = f"jdbc:sqlserver://10.2.0.3;databaseName={database};encrypt=true;trustServerCertificate=true;"
+db_url = f"jdbc:sqlserver://10.2.0.2;databaseName={database};encrypt=true;trustServerCertificate=true;"
 db_user = "sqlserver"
 db_password = "P@ssword@111"
 
-project_name = "amm-dataproc-testing-434813"
+project_name = "amm-beacon-demo"
 dataset_name = "adventureworks_raw"
-bucket = "dataproc-staging-us-central1-199685607474-mv4goh0s"
+bucket = "s8s_data_and_code_bucket-188308391391"
 
 def read_config(table):
 
@@ -30,7 +30,7 @@ def load_table(source, target):
     load_df = (
         spark.read
         .format("jdbc")
-        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver")   
+        .option("driver", "com.ibm.as400.access.AS400JDBCDriver")   
         .option("url", db_url)
         .option("dbtable", source)
         .option("user", db_user)

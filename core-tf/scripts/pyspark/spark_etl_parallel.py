@@ -4,14 +4,14 @@ from queue import Queue
 
 # Source variables
 database = "AdventureWorks2022"
-cloudsql_ip = "10.2.0.3:1433"
+cloudsql_ip = "10.2.0.2:1433"
 db_url = f"jdbc:sqlserver://{cloudsql_ip};databaseName={database};encrypt=true;trustServerCertificate=true;"
 db_user = "sqlserver"
 db_password = "P@ssword@111"
 
 # Sink variables
 dataset_name = "adventureworks_raw"
-bucket = "s8s_data_and_code_bucket-1001462454132"
+bucket = "s8s_data_and_code_bucket-188308391391"
 
 def read_config(table):
 

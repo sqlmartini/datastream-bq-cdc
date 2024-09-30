@@ -7,7 +7,7 @@ SELECT
 FROM
     ${ref("Sales")} a
 INNER JOIN
-    ${ref(""Products")} b
+    ${ref("Products")} b
 ON
     a.ProductID = b.ProductID
 GROUP BY

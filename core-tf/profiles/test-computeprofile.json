@@ -39,7 +39,7 @@
             },
             {
                 "name": "serviceAccount",
-                "value": "cdf-lab-sa@<PROJECT_ID>.iam.gserviceaccount.com",
+                "value": "cdf-lab-sa@amm-beacon-demo.iam.gserviceaccount.com",
                 "isEditable": true
             },
             {

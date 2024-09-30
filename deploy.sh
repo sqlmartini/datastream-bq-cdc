@@ -1,5 +1,5 @@
 #Configure project you want to deploy to
-export PROJECT_ID="amm-dataproc-testing-434813"
+export PROJECT_ID="amm-beacon-demo"
 cd ~/repos/gcp_analytics_demo/core-tf/scripts
 source 1-config.sh
 

@@ -41,11 +41,9 @@ ALTER DATABASE AdventureWorks2022 SET ALLOW_SNAPSHOT_ISOLATION ON;
 
 --First create login through google cloud console
 CREATE USER datastream FOR LOGIN datastream;
-GO
 
 EXEC sp_addrolemember 'db_owner', 'datastream';
 EXEC sp_addrolemember 'db_denydatawriter', 'datastream';
-GO
 
 --Optional
 USE [AdventureWorks2022];
@@ -54,4 +52,3 @@ CREATE TABLE dbo.gcp_datastream_truncation_safeguard (
   CreatedDate DATETIME DEFAULT GETDATE(),
   [char_column] CHAR(8)
   );
-GO

@@ -1,6 +1,5 @@
     config {
       type: "declaration",
-      database: "amm-dataproc-testing-434813",
       schema: "adventureworks_raw",
       name: "SalesOrderHeader"
     }
