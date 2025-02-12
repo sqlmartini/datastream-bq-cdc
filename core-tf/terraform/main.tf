@@ -61,7 +61,6 @@ module "umsa_role_grants" {
     "roles/bigquery.dataEditor",
     "roles/bigquery.admin",
     "roles/datafusion.runner",
-    "roles/iam.serviceAccountUser",
     "roles/cloudsql.client",
     "roles/composer.worker",
     "roles/composer.admin"    

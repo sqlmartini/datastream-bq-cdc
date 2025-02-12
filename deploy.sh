@@ -1,5 +1,5 @@
 #Configure project you want to deploy to
-export PROJECT_ID="amm-beacon-demo"
+export PROJECT_ID=""
 cd ~/repos/gcp_analytics_demo/core-tf/scripts
 source 1-config.sh
 

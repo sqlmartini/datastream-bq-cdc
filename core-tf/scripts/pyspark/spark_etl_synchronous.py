@@ -1,16 +1,29 @@
 from pyspark.sql import SparkSession
+from google.cloud import secretmanager
+import sys
 
-database = "AdventureWorks2022"
-db_url = f"jdbc:sqlserver://10.2.0.2;databaseName={database};encrypt=true;trustServerCertificate=true;"
-db_user = "sqlserver"
-db_password = "P@ssword@111"
+def access_secret(project_id, secret_id, version_id="latest"):
+    """
+    Access the payload for the given secret
+    """
 
-project_name = "amm-beacon-demo"
-dataset_name = "adventureworks_raw"
-bucket = "s8s_data_and_code_bucket-188308391391"
+    # Create the Secret Manager client.
+    client = secretmanager.SecretManagerServiceClient()
+
+    # Build the resource name of the secret version.
+    name = f"projects/{project_id}/secrets/{secret_id}/versions/{version_id}"
+
+    # Access the secret version.
+    response = client.access_secret_version(request={"name": name})
+
+    payload = response.payload.data.decode("UTF-8")
+    return payload
 
 def read_config(table):
-
+    """
+    Read the ETL source to target mapping configuration
+    """    
+    
     config_df = (
         spark.read
         .format("bigquery")
@@ -19,18 +32,19 @@ def read_config(table):
     )
 
     config = config_df.collect()
+    return config
 
-    for row in config:
-        load_table(row["sourceTableName"], row["targetTableName"])
-
-def load_table(source, target):
+def extract(source, db_url, db_user, db_password):
+    """
+    Read from source and return a dataframe
+    """    
+    
     print(f'source: {source}')
-    print(f'target: {target}')
 
-    load_df = (
+    extract_df = (
         spark.read
         .format("jdbc")
-        .option("driver", "com.ibm.as400.access.AS400JDBCDriver")   
+        .option("driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver")   
         .option("url", db_url)
         .option("dbtable", source)
         .option("user", db_user)
@@ -38,15 +52,45 @@ def load_table(source, target):
         .load()
     )
 
-    load_df.write \
-    .format('bigquery') \
-    .mode("overwrite") \
-    .option("table","{}.{}".format(dataset_name, target)) \
-    .option("temporaryGcsBucket", bucket) \
-    .save()        
+    return extract_df
 
-spark = SparkSession.builder \
-  .appName("ETL Testing")\
-  .getOrCreate()
+def load(df, dataset_name, target):
+    """
+    Write to target table
+    """   
+    
+    print(f'target: {target}')
 
-read_config("adventureworks_raw.elt_config")
+    (df.write
+        .format('bigquery')
+        .mode("overwrite")
+        .option("table", f"{dataset_name}.{target}")
+        .option("writeMethod", "direct")
+        .save())
+
+if __name__ == "__main__":
+        
+    spark = SparkSession.builder.getOrCreate()
+
+    # Parse arguments
+    project_id = sys.argv[1]
+
+    # Retrieve secret manager secrets
+    db_user = access_secret(project_id, "airflow-variables-cloudsql-username")
+    db_password = access_secret(project_id, "airflow-variables-cloudsql-password")
+    db_ip = access_secret(project_id, "airflow-variables-cloudsql-ip")
+
+    # Source variables
+    database = "AdventureWorks2022"
+    db_url = f"jdbc:sqlserver://{db_ip};databaseName={database};encrypt=true;trustServerCertificate=true;"
+
+    # Sink variables
+    dataset_name = "adventureworks_raw"  
+
+    # Read ETL configuration
+    config = read_config("adventureworks_raw.elt_config")
+
+    # Loop through ETL configuration, read source and load to target
+    for row in config:
+        df = extract(row["sourceTableName"], db_url, db_user, db_password)
+        load(df, dataset_name, row["targetTableName"])

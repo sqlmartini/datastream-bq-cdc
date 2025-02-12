@@ -21,6 +21,7 @@ curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/names
 #post compute profile
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/profiles/test" -d @../profiles/test-computeprofile.json
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/profiles/n4" -d @../profiles/n4-computeprofile.json
+curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/profiles/n4" -d @../profiles/c4a-computeprofile.json
 
 #post pipeline
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/Test1" -d @../pipelines/test-cdap-data-pipeline.json

@@ -2,7 +2,7 @@ from pendulum import datetime
 import os
 from airflow.decorators import dag, task
 from airflow.operators import bash_operator
-from airflow.providers.google.cloud.operators.dataproc import DataprocDeleteClusterOperator
+from airflow.models.variable import Variable
 
 @dag(
     start_date=datetime(2024, 1, 1), max_active_runs=3, schedule=None, catchup=False, template_searchpath=['/home/airflow/gcs/data']
