@@ -1,1 +1,0 @@
-INSERT INTO Production.ProductCategory (Name) VALUES ('Cloud Computing')

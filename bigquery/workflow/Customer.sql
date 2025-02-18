@@ -1,0 +1,1 @@
+CALL adventureworks_gold.Customer_Merge();
