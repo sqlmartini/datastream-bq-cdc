@@ -1,0 +1,149 @@
+{
+    "name": "c4atest",
+    "label": "c4atest",
+    "description": "c4atest",
+    "scope": "USER",
+    "status": "ENABLED",
+    "provisioner": {
+        "name": "gcp-dataproc",
+        "properties": [
+            {
+                "name": "region",
+                "value": "us-central1",
+                "isEditable": true
+            },
+            {
+                "name": "network",
+                "value": "vpc-main",
+                "isEditable": true
+            },
+            {
+                "name": "subnet",
+                "value": "spark-snet",
+                "isEditable": true
+            },
+            {
+                "name": "serviceAccount",
+                "value": "cdf-lab-sa@amm-da-demo-433411.iam.gserviceaccount.com",
+                "isEditable": true
+            },
+            {
+                "name": "masterNumNodes",
+                "value": "1",
+                "isEditable": true
+            },
+            {
+                "name": "masterMachineType",
+                "value": "c4a-standard-2",
+                "isEditable": true
+            },
+            {
+                "name": "masterDiskGB",
+                "value": "500",
+                "isEditable": true
+            },
+            {
+                "name": "masterDiskType",
+                "value": "hyperdisk-balanced",
+                "isEditable": true
+            },
+            {
+                "name": "workerMachineType",
+                "value": "c4a-standard-2",
+                "isEditable": true
+            },
+            {
+                "name": "workerDiskGB",
+                "value": "500",
+                "isEditable": true
+            },
+            {
+                "name": "workerDiskType",
+                "value": "hyperdisk-balanced",
+                "isEditable": true
+            },
+            {
+                "name": "workerNumNodes",
+                "value": "2",
+                "isEditable": true
+            },
+            {
+                "name": "secureBootEnabled",
+                "value": "false",
+                "isEditable": true
+            },
+            {
+                "name": "vTpmEnabled",
+                "value": "false",
+                "isEditable": true
+            },
+            {
+                "name": "integrityMonitoringEnabled",
+                "value": "false",
+                "isEditable": true
+            },
+            {
+                "name": "imageVersion",
+                "value": "2.2",
+                "isEditable": true
+            },
+            {
+                "name": "idleTTL",
+                "value": "30",
+                "isEditable": true
+            },
+            {
+                "name": "skipDelete",
+                "value": "false",
+                "isEditable": true
+            },
+            {
+                "name": "stackdriverLoggingEnabled",
+                "value": "true",
+                "isEditable": true
+            },
+            {
+                "name": "stackdriverMonitoringEnabled",
+                "value": "true",
+                "isEditable": true
+            },
+            {
+                "name": "componentGatewayEnabled",
+                "value": "true",
+                "isEditable": true
+            },
+            {
+                "name": "launchMode",
+                "value": "cluster",
+                "isEditable": true
+            },
+            {
+                "name": "preferExternalIP",
+                "value": "false",
+                "isEditable": true
+            },
+            {
+                "name": "pollCreateDelay",
+                "value": "60",
+                "isEditable": true
+            },
+            {
+                "name": "pollCreateJitter",
+                "value": "20",
+                "isEditable": true
+            },
+            {
+                "name": "pollDeleteDelay",
+                "value": "30",
+                "isEditable": true
+            },
+            {
+                "name": "pollInterval",
+                "value": "2",
+                "isEditable": true
+            }
+        ],
+        "totalProcessingCpusLabel": "4"
+    },
+    "created": 1699977418
+}

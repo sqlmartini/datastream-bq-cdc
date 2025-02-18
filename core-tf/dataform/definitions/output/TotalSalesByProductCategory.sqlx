@@ -1,0 +1,14 @@
+config { 
+    type: "table"
+}
+SELECT
+    b.ProductCategoryName
+    , SUM(a.LineTotal) as TotalSales
+FROM
+    ${ref("Sales")} a
+INNER JOIN
+    ${ref("Products")} b
+ON
+    a.ProductID = b.ProductID
+GROUP BY
+  b.ProductCategoryName

@@ -1,1 +1,0 @@
-CALL adventureworks_gold.Sales_Merge();
