@@ -15,7 +15,7 @@ This repo demonstrates the configuration of a data ingestion process that connec
 cd ~
 mkdir repos
 cd repos
-git clone https://github.com/sqlmartini/cdf-private.git
+git clone https://github.com/sqlmartini/gcp_analytics_demo.git
 ```
 
 ## 2. Foundational provisioning automation with Terraform 
