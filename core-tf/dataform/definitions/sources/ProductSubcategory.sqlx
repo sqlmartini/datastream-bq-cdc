@@ -1,5 +1,0 @@
-    config {
-      type: "declaration",
-      schema: "adventureworks_raw",
-      name: "ProductSubcategory"
-    }
