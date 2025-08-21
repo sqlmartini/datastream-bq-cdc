@@ -16,6 +16,7 @@ cd ~
 mkdir repos
 cd repos
 git clone https://github.com/sqlmartini/datastream-bq-cdc.git
+cd datastream-bq-cdc
 ```
 
 ## 2. Deploy environment
