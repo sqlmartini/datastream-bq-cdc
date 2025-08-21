@@ -321,7 +321,7 @@ resource "google_datastream_stream" "cdc_stream" {
         bigquery_destination_config {
             data_freshness = "900s"
             merge {}
-            single_target_dataset {dataset_id = "amm-testing3:adventureworks_bronze"}
+            single_target_dataset {dataset_id = "${local.project_id}:adventureworks_bronze"}
             }
       }
     backfill_all{}
@@ -362,7 +362,7 @@ resource "google_datastream_stream" "append_stream" {
         bigquery_destination_config {
             data_freshness = "900s"
             merge {}
-            single_target_dataset {dataset_id = "amm-testing3:adventureworks_bronze"}
+            single_target_dataset {dataset_id = "${local.project_id}:adventureworks_bronze"}
             }
       }
     backfill_all{}

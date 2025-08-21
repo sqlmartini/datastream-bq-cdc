@@ -1,6 +1,6 @@
 #Configuration
 export LOCAL_ROOT="datastream-bq-cdc"
-export PROJECT_ID="amm-cdc-469615"
+export PROJECT_ID="amm-bq-cdc"
 
 #Install Terraform
 cd ~/repos/$LOCAL_ROOT/core-tf/scripts
