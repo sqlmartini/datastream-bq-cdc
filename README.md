@@ -15,7 +15,11 @@ This repo demonstrates the configuration of a data ingestion process that connec
 cd ~
 mkdir repos
 cd repos
+<<<<<<< HEAD
 git clone https://github.com/sqlmartini/gcp-analytic-demo.git
+=======
+git clone https://github.com/sqlmartini/gcp_analytics_demo.git
+>>>>>>> 1d0d0f0a44d6e3a50e35cac0a585003c81c8b2d0
 ```
 
 ## 2. Foundational provisioning automation with Terraform 
