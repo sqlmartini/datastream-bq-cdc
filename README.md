@@ -94,3 +94,4 @@ cd ~/repos/$LOCAL_ROOT/core-tf/scripts
 source 2-cloudsql.sh
 ```
 
+# datastream-bq-cdc
