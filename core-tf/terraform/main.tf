@@ -264,6 +264,11 @@ resource "null_resource" "import_database" {
  depends_on = [module.sql-db_mssql.instance]  
 }
 
+resource "time_sleep" "sleep_after_import_database" {
+  create_duration = "60s"
+  depends_on = [null_resource.import_database]
+}
+
 /******************************************
 9. Datastream
 ******************************************/
@@ -274,14 +279,13 @@ resource "google_datastream_connection_profile" "source" {
     connection_profile_id = "source-profile"
 
     sql_server_profile {
-        #hostname = "34.29.115.174""
         hostname = module.sql-db_mssql.instance_first_ip_address
         port     = 1433
         username = "sqlserver"
         password = "P@ssword@111"
         database = "AdventureWorks2022"
     }
-    depends_on = [null_resource.import_database]  
+    depends_on = [time_sleep.sleep_after_import_database]  
 }
 
 resource "google_datastream_connection_profile" "destination" {
@@ -291,7 +295,7 @@ resource "google_datastream_connection_profile" "destination" {
     connection_profile_id = "destination-profile"
 
     bigquery_profile {}
-    depends_on = [null_resource.import_database]
+    depends_on = [time_sleep.sleep_after_import_database]
 }
 
 resource "google_datastream_stream" "cdc_stream" {

@@ -1,3 +1,7 @@
+#Script has already been run against Microsoft provided sample database
+#The backup after the script has run is what is restored to Cloud SQL
+#https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure
+
 EXEC msdb.dbo.gcloudsql_cdc_enable_db 'AdventureWorks2022';
 
 EXEC sys.sp_cdc_enable_table

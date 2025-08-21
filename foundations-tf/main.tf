@@ -81,18 +81,6 @@ resource "google_project_service" "enable_orgpolicy_google_apis" {
   disable_dependent_services = true
 }
 
-resource "google_project_service" "enable_compute_google_apis" {
-  project = var.project_id
-  service = "compute.googleapis.com"
-  disable_dependent_services = true
-}
-
-resource "google_project_service" "enable_bigquery_google_apis" {
-  project = var.project_id
-  service = "bigquery.googleapis.com"
-  disable_dependent_services = true
-}
-
 resource "google_project_service" "enable_storage_google_apis" {
   project = var.project_id
   service = "storage.googleapis.com"
@@ -110,7 +98,6 @@ resource "google_project_service" "enable_monitoring_google_apis" {
   service = "monitoring.googleapis.com"
   disable_dependent_services = true
 }
-
 
 resource "google_project_service" "enable_cloudsql_google_apis" {
   project = var.project_id
@@ -130,51 +117,21 @@ resource "google_project_service" "enable_cloudresourcemanager_google_apis" {
   disable_dependent_services = true
 }
 
-resource "google_project_service" "enable_dataform_google_apis" {
-  project = var.project_id
-  service = "dataform.googleapis.com"
-  disable_dependent_services = true
-}
-
-resource "google_project_service" "enable_bigqueryconnection_google_apis" {
-  project = var.project_id
-  service = "bigqueryconnection.googleapis.com"
-  disable_dependent_services = true
-}
-
-resource "google_project_service" "enable_cloudfunctions_google_apis" {
-  project = var.project_id
-  service = "cloudfunctions.googleapis.com"
-  disable_dependent_services = true
-}
-
-resource "google_project_service" "enable_run_google_apis" {
-  project = var.project_id
-  service = "run.googleapis.com"
-  disable_dependent_services = true
-}
-
 resource "google_project_service" "enable_datalineage_google_apis" {
   project = var.project_id
   service = "datalineage.googleapis.com"
   disable_dependent_services = true
 }
 
-resource "google_project_service" "enable_datacatalog_google_apis" {
-  project = var.project_id
-  service = "datacatalog.googleapis.com"
-  disable_dependent_services = true
-}
-
-resource "google_project_service" "enable_duetai_google_apis" {
+resource "google_project_service" "enable_gemini_google_apis" {
   project = var.project_id
   service = "cloudaicompanion.googleapis.com"
   disable_dependent_services = true
 }
 
-resource "google_project_service" "enable_datastream_google_apis" {
+resource "google_project_service" "enable_bqunified_google_apis" {
   project = var.project_id
-  service = "datastream.googleapis.com"
+  service = "bigqueryunified.googleapis.com"
   disable_dependent_services = true
 }
 
@@ -186,21 +143,14 @@ resource "time_sleep" "sleep_after_api_enabling" {
   create_duration = "30s"
   depends_on = [
     google_project_service.enable_orgpolicy_google_apis,
-    google_project_service.enable_compute_google_apis,
-    google_project_service.enable_bigquery_google_apis,
     google_project_service.enable_storage_google_apis,
     google_project_service.enable_logging_google_apis,
     google_project_service.enable_monitoring_google_apis,
-    google_project_service.enable_datastream_google_apis,
     google_project_service.enable_cloudsql_google_apis,
     google_project_service.enable_servicenetworking_google_apis,
     google_project_service.enable_cloudresourcemanager_google_apis,
-    google_project_service.enable_dataform_google_apis,
-    google_project_service.enable_bigqueryconnection_google_apis,
-    google_project_service.enable_cloudfunctions_google_apis,
-    google_project_service.enable_run_google_apis,
     google_project_service.enable_datalineage_google_apis,
-    google_project_service.enable_datacatalog_google_apis,
-    google_project_service.enable_duetai_google_apis
+    google_project_service.enable_gemini_google_apis,
+    google_project_service.enable_bqunified_google_apis
   ]
 }
